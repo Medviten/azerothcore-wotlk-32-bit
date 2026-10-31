@@ -4574,8 +4574,8 @@ AllowTwoSide.Interaction.Auction = 0
 #        Description: Faction Free: do not treat the other faction's zones as hostile territory,
 #                     so entering an enemy capital (or, on PvP realms, any enemy zone) does not
 #                     flag players for PvP.
-#        Default:     1 - (Enabled)
-#                     0 - (Disabled, stock behaviour)
+#        Default:     0 - (Disabled, stock behaviour)
+#                     1 - (Enabled)
 
 AllowTwoSide.EnemyTerritory = 0
 
