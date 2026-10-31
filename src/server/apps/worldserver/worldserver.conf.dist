@@ -4577,7 +4577,7 @@ AllowTwoSide.Interaction.Auction = 0
 #        Default:     1 - (Enabled)
 #                     0 - (Disabled, stock behaviour)
 
-AllowTwoSide.EnemyTerritory = 1
+AllowTwoSide.EnemyTerritory = 0
 
 #
 #    TalentsInspecting
