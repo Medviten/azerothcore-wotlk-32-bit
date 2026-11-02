@@ -64,6 +64,8 @@ enum Gender
 };
 
 // Race value is index in ChrRaces.dbc
+// From 13 up these follow the race modpaks in WHE's build-dbc.manifest, and must be changed along with it. High Elf and
+// Ogre are over the 31 race limit with that manifest: their code stays, but no character has these values.
 // EnumUtils: DESCRIBE THIS
 enum Races
 {
@@ -80,36 +82,28 @@ enum Races
     RACE_BLOODELF           = 10, // TITLE Blood Elf
     RACE_DRAENEI            = 11, // TITLE Draenei
     RACE_WORGEN             = 12, // TITLE Worgen
-    RACE_HIGHELF            = 13, // TITLE High Elf
-    RACE_MAGHARORC          = 14, // TITLE Mag'har Orc
-    RACE_OGRE               = 15, // TITLE Ogre
-    RACE_DARKIRONDWARF      = 16, // TITLE Dark Iron Dwarf
-    RACE_ZANDALARITROLL     = 17, // TITLE Zandalari Troll
-    RACE_VULPERA            = 18, // TITLE Vulpera
-    RACE_ALLIANCEPANDAREN   = 19, // TITLE Alliance Pandaren
-    RACE_HORDEPANDAREN      = 20, // TITLE Horde Pandaren
-    //RACE_KULTIRAN           = 21, // TITLE Kul Tiran
-    //RACE_LIGHTFORGEDDRAENEI = 22, // TITLE Lightforged Draenei
-    RACE_GILNEAN            = 23  // TITLE Gilnean
-    //RACE_VOIDELF            = 24, // TITLE Void Elf
-    //RACE_HIGHMOUNTAINTAUREN = 25, // TITLE Highmountain Tauren
-    //RACE_MECHAGNOME         = 26, // TITLE Mechagnome
-    //RACE_DRACTHYR           = 27, // TITLE Dracthyr
-    //RACE_Visage             = 28, // TITLE Visage
-    //RACE_EARTHEN            = 29, // TITLE Earthen
-    //RACE_EREDAR             = 30 // TITLE Eredar
-    //RACE_Darkfallen         = 31 // TITLE Darkfallen
-    //RACE_NIGHTBORNE         = 32, // TITLE Nightborne
-    //RACE_FELORC             = 72,
-    //RACE_NAGA               = 73,
-    //RACE_BROKEN             = 74,
-    //RACE_SKELETON           = 75,
-    //RACE_VRYKUL             = 76,
-    //RACE_TUSKARR            = 77,
-    //RACE_FOREST_TROLL       = 78,
-    //RACE_TAUNKA             = 79,
-    //RACE_NORTHREND_SKELETON = 80,
-    //RACE_ICE_TROLL          = 81
+    RACE_HIGHELF            = 32, // TITLE High Elf
+    RACE_MAGHARORC          = 23, // TITLE Mag'har Orc
+    RACE_OGRE               = 33, // TITLE Ogre
+    RACE_DARKIRONDWARF      = 22, // TITLE Dark Iron Dwarf
+    RACE_ZANDALARITROLL     = 19, // TITLE Zandalari Troll
+    RACE_VULPERA            = 21, // TITLE Vulpera
+    RACE_ALLIANCEPANDAREN   = 13, // TITLE Alliance Pandaren
+    RACE_HORDEPANDAREN      = 14, // TITLE Horde Pandaren
+    //RACE_KULTIRAN           = 20, // TITLE Kul Tiran
+    //RACE_LIGHTFORGEDDRAENEI = 18, // TITLE Lightforged Draenei
+    RACE_GILNEAN            = 213 // TITLE Gilnean
+    //RACE_VOIDELF            = 17, // TITLE Void Elf
+    //RACE_HIGHMOUNTAINTAUREN = 16, // TITLE Highmountain Tauren
+    //RACE_NIGHTBORNE         = 15, // TITLE Nightborne
+    //RACE_NAGA               = 24,
+    //RACE_BROKEN             = 25,
+    //RACE_VRYKUL             = 26,
+    //RACE_TUSKARR            = 27,
+    //RACE_TAUNKA             = 28,
+    //RACE_SKELETON           = 29,
+    //RACE_FOREST_TROLL       = 30,
+    //RACE_ICE_TROLL          = 31
 };
 
 // DisplayRace values from CreatureDisplayInfoExtra.dbc
@@ -128,26 +122,20 @@ enum class DisplayRace : uint8
     BloodElf          = 10,
     Draenei           = 11,
     Worgen            = 12,
-    HighElf           = 13,
-    MagharOrc         = 14,
-    Ogre              = 15,
-    DarkIronDwarf     = 16,
-    ZandalariTroll    = 17,
-    Vulpera           = 18,
-    AlliancePandaren  = 19,
-    HordePandaren     = 20,
-//  KulTiran          = 21,
-//  LightforgedDraenei = 22,
-    Gilnean           = 23,
-//  VoidElf           = 24,
-// HighmountainTauren = 25,
-//  Mechagnome        = 26,
-//  Dracthyr          = 27,
-//  Visage            = 28,
-//  Earthen           = 29,
-//  Eredar            = 30,
-//  Darkfallen        = 31,
-//  Nightborne        = 32,
+    HighElf           = 32,
+    MagharOrc         = 23,
+    Ogre              = 33,
+    DarkIronDwarf     = 22,
+    ZandalariTroll    = 19,
+    Vulpera           = 21,
+    AlliancePandaren  = 13,
+    HordePandaren     = 14,
+//  KulTiran          = 20,
+//  LightforgedDraenei = 18,
+    Gilnean           = 213,
+//  VoidElf           = 17,
+// HighmountainTauren = 16,
+//  Nightborne        = 15,
     FelOrc            = 72,
     Naga              = 73,
     Broken            = 74,

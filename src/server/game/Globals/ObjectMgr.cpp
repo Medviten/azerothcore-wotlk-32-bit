@@ -1894,7 +1894,7 @@ uint32 ObjectMgr::GetModelForShapeshift(ShapeshiftForm form, Player* player) con
     static std::unordered_set<uint8> const skinColorRaces = []
     {
         std::unordered_set<uint8> races;
-        std::string const list = sConfigMgr->GetOption<std::string>("Shapeshift.SkinColorRaces", "6,18,19,20");
+        std::string const list = sConfigMgr->GetOption<std::string>("Shapeshift.SkinColorRaces", "6,21,13,14");
         for (std::string_view race : Acore::Tokenize(list, ',', false))
         {
             if (Optional<uint8> raceId = Acore::StringTo<uint8>(race))
