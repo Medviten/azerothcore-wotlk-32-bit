@@ -66,6 +66,7 @@
 #include "Pet.h"
 #include "PetitionMgr.h"
 #include "QuestDef.h"
+#include "RaceMgr.h"
 #include "RBAC.h"
 #include "Realm.h"
 #include "ReputationMgr.h"
@@ -687,7 +688,7 @@ bool Player::Create(ObjectGuid::LowType guidlow, CharacterCreateInfo* createInfo
             voucherId = 39713; // Ebon Hold Gift Voucher
         else
         {
-            switch (createInfo->Race)
+            switch (sRaceMgr->GetHomeRace(createInfo->Race))
             {
                 case RACE_HUMAN:
                     voucherId = 14646; break; // Goldshire Gift Voucher

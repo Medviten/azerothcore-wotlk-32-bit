@@ -64,8 +64,6 @@ enum Gender
 };
 
 // Race value is index in ChrRaces.dbc
-// From 13 up these follow the race modpaks in WHE's build-dbc.manifest, and must be changed along with it. High Elf and
-// Ogre are over the 31 race limit with that manifest: their code stays, but no character has these values.
 // EnumUtils: DESCRIBE THIS
 enum Races
 {
@@ -78,32 +76,19 @@ enum Races
     RACE_TAUREN             = 6,  // TITLE Tauren
     RACE_GNOME              = 7,  // TITLE Gnome
     RACE_TROLL              = 8,  // TITLE Troll
-    RACE_GOBLIN             = 9,  // TITLE Goblin
+    //RACE_GOBLIN             = 9,
     RACE_BLOODELF           = 10, // TITLE Blood Elf
-    RACE_DRAENEI            = 11, // TITLE Draenei
-    RACE_WORGEN             = 12, // TITLE Worgen
-    RACE_HIGHELF            = 32, // TITLE High Elf
-    RACE_MAGHARORC          = 23, // TITLE Mag'har Orc
-    RACE_OGRE               = 33, // TITLE Ogre
-    RACE_DARKIRONDWARF      = 22, // TITLE Dark Iron Dwarf
-    RACE_ZANDALARITROLL     = 19, // TITLE Zandalari Troll
-    RACE_VULPERA            = 21, // TITLE Vulpera
-    RACE_ALLIANCEPANDAREN   = 13, // TITLE Alliance Pandaren
-    RACE_HORDEPANDAREN      = 14, // TITLE Horde Pandaren
-    //RACE_KULTIRAN           = 20, // TITLE Kul Tiran
-    //RACE_LIGHTFORGEDDRAENEI = 18, // TITLE Lightforged Draenei
-    RACE_GILNEAN            = 213 // TITLE Gilnean
-    //RACE_VOIDELF            = 17, // TITLE Void Elf
-    //RACE_HIGHMOUNTAINTAUREN = 16, // TITLE Highmountain Tauren
-    //RACE_NIGHTBORNE         = 15, // TITLE Nightborne
-    //RACE_NAGA               = 24,
-    //RACE_BROKEN             = 25,
-    //RACE_VRYKUL             = 26,
-    //RACE_TUSKARR            = 27,
-    //RACE_TAUNKA             = 28,
-    //RACE_SKELETON           = 29,
-    //RACE_FOREST_TROLL       = 30,
-    //RACE_ICE_TROLL          = 31
+    RACE_DRAENEI            = 11 //, TITLE Draenei
+    //RACE_FEL_ORC        = 12,
+    //RACE_NAGA           = 13,
+    //RACE_BROKEN         = 14,
+    //RACE_SKELETON       = 15,
+    //RACE_VRYKUL         = 16,
+    //RACE_TUSKARR        = 17,
+    //RACE_FOREST_TROLL   = 18,
+    //RACE_TAUNKA         = 19,
+    //RACE_NORTHREND_SKELETON = 20,
+    //RACE_ICE_TROLL      = 21
 };
 
 // DisplayRace values from CreatureDisplayInfoExtra.dbc
@@ -121,31 +106,16 @@ enum class DisplayRace : uint8
     Goblin            = 9,
     BloodElf          = 10,
     Draenei           = 11,
-    Worgen            = 12,
-    HighElf           = 32,
-    MagharOrc         = 23,
-    Ogre              = 33,
-    DarkIronDwarf     = 22,
-    ZandalariTroll    = 19,
-    Vulpera           = 21,
-    AlliancePandaren  = 13,
-    HordePandaren     = 14,
-//  KulTiran          = 20,
-//  LightforgedDraenei = 18,
-    Gilnean           = 213,
-//  VoidElf           = 17,
-// HighmountainTauren = 16,
-//  Nightborne        = 15,
-    FelOrc            = 72,
-    Naga              = 73,
-    Broken            = 74,
-    Skeleton          = 75,
-    Vrykul            = 76,
-    Tuskarr           = 77,
-    ForestTroll       = 78,
-    Taunka            = 79,
-    NorthrendSkeleton = 80,
-    IceTroll          = 81,
+    FelOrc            = 12,
+    Naga              = 13,
+    Broken            = 14,
+    Skeleton          = 15,
+    Vrykul            = 16,
+    Tuskarr           = 17,
+    ForestTroll       = 18,
+    Taunka            = 19,
+    NorthrendSkeleton = 20,
+    IceTroll          = 21
 };
 
 // Class value is index in ChrClasses.dbc

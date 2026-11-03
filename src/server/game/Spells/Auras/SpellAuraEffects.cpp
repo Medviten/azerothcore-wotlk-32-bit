@@ -15,6 +15,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "RaceMgr.h"
 #include "SpellAuraEffects.h"
 #include "AreaDefines.h"
 #include "BattlefieldMgr.h"
@@ -2300,51 +2301,23 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                             if (!target->IsPlayer())
                                 return;
 
-                            switch (target->getRace())
+                            switch (sRaceMgr->GetLookalikeRace(target->getRace()))
                             {
                                 // Blood Elf
                                 case RACE_BLOODELF:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 17829 : 17830);
-                                    break;
-                                // High Elf
-                                case RACE_HIGHELF:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 17829 : 17830);
                                     break;
                                 // Orc
                                 case RACE_ORC:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 10139 : 10140);
                                     break;
-                                // Mag'har Orc
-                                case RACE_MAGHARORC:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10139 : 10140); // Orc ones
-                                    break;
-                                // Ogre
-                                case RACE_OGRE:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10139 : 10140); // Orc ones
-                                    break;
-                                // Goblin
-                                case RACE_GOBLIN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10139 : 10140); // Orc ones
-                                    break;
                                 // Troll
                                 case RACE_TROLL:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 10135 : 10134);
                                     break;
-                                // Zandalari Troll
-                                case RACE_ZANDALARITROLL:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10135 : 10134); // Troll ones
-                                    break;
                                 // Tauren
                                 case RACE_TAUREN:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 10136 : 10147);
-                                    break;
-                                // Vulpera
-                                case RACE_VULPERA:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10136 : 10147); // Tauren ones
-                                    break;
-                                // Horde Pandaren
-                                case RACE_HORDEPANDAREN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10136 : 10147); // Tauren ones
                                     break;
                                 // Undead
                                 case RACE_UNDEAD_PLAYER:
@@ -2358,10 +2331,6 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                 case RACE_DWARF:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 10141 : 10142);
                                     break;
-                                // Dark Iron Dwarf
-                                case RACE_DARKIRONDWARF:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10141 : 10142); // Dwarf ones
-                                    break;
                                 // Gnome
                                 case RACE_GNOME:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 10148 : 10149);
@@ -2369,14 +2338,6 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                 // Human
                                 case RACE_HUMAN:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 10137 : 10138);
-                                    break;
-                                // Worgen
-                                case RACE_WORGEN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10137 : 10138); // Human ones
-                                    break;
-                                // Alliance Pandaren
-                                case RACE_ALLIANCEPANDAREN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 10137 : 10138); // Human ones
                                     break;
                                 // Night Elf
                                 case RACE_NIGHTELF:
@@ -2399,51 +2360,23 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                             if (!target->IsPlayer())
                                 return;
 
-                            switch (target->getRace())
+                            switch (sRaceMgr->GetLookalikeRace(target->getRace()))
                             {
                                 // Blood Elf
                                 case RACE_BLOODELF:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25032 : 25043);
-                                    break;
-                                // High Elf
-                                case RACE_HIGHELF:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25032 : 25043);
                                     break;
                                 // Orc
                                 case RACE_ORC:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25039 : 25050);
                                     break;
-                                // Mag'har Orc
-                                case RACE_MAGHARORC:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25039 : 25050); // Orc ones
-                                    break;
-                                // Ogre
-                                case RACE_OGRE:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25039 : 25050); // Orc ones
-                                    break;
-                                // Goblin
-                                case RACE_GOBLIN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25039 : 25050); // Orc ones
-                                    break;
                                 // Troll
                                 case RACE_TROLL:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25041 : 25052);
                                     break;
-                                // Zandalari Troll
-                                case RACE_ZANDALARITROLL:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25041 : 25052); // Troll ones
-                                    break;
                                 // Tauren
                                 case RACE_TAUREN:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25040 : 25051);
-                                    break;
-                                // Vulpera
-                                case RACE_VULPERA:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25040 : 25051); // Vulpera
-                                    break;
-                                // Horde Pandaren
-                                case RACE_HORDEPANDAREN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25040 : 25051); // Horde Pandaren
                                     break;
                                 // Undead
                                 case RACE_UNDEAD_PLAYER:
@@ -2457,10 +2390,6 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                 case RACE_DWARF:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25034 : 25045);
                                     break;
-                                // Dark Iron Dwarf
-                                case RACE_DARKIRONDWARF:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25034 : 25045); // Dwarf ones
-                                    break;
                                 // Gnome
                                 case RACE_GNOME:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25035 : 25046);
@@ -2468,14 +2397,6 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                 // Human
                                 case RACE_HUMAN:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25037 : 25048);
-                                    break;
-                                // Worgen
-                                case RACE_WORGEN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25037 : 25048); // Human ones
-                                    break;
-                                // Alliance Pandaren
-                                case RACE_ALLIANCEPANDAREN:
-                                    target->SetDisplayId(target->getGender() == GENDER_MALE ? 25037 : 25048); // Human ones
                                     break;
                                 // Night Elf
                                 case RACE_NIGHTELF:
@@ -2498,33 +2419,27 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Brewfest
                     case 65511:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     if (urand(0, 1))
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21839 : 21838);
                                     else
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21841 : 21840);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     if (urand(0, 1))
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21867 : 21866);
                                     else
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21869 : 21868);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     if (urand(0, 1))
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21875 : 21874);
                                     else
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21877 : 21876);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     if (urand(0, 1))
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21869 : 21871);
                                     else
@@ -2543,7 +2458,6 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21845 : 21843);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     if (urand(0, 1))
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21846 : 21848);
                                     else
@@ -2556,8 +2470,6 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21853 : 21852);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     if (urand(0, 1))
                                         target->SetDisplayId(target->getGender() == GENDER_MALE ? 21859 : 21858);
                                     else
@@ -2595,24 +2507,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Winter Veil
                     case 65522:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18793 : 18785);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18805 : 18804);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18809 : 18808);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18807 : 18806);
                                     break;
                                 case DisplayRace::Undead:
@@ -2622,15 +2528,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18795 : 18794);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18797 : 18796);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18799 : 18798);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18801 : 18800);
                                     break;
                                 case DisplayRace::NightElf:
@@ -2646,24 +2549,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Default
                     case 65523:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19170 : 19169);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19182 : 19181);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19186 : 19185);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19184 : 19183);
                                     break;
                                 case DisplayRace::Undead:
@@ -2673,15 +2570,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19172 : 19171);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19174 : 19173);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19176 : 19175);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 19178 : 19177);
                                     break;
                                 case DisplayRace::NightElf:
@@ -2697,24 +2591,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Lunar Festival
                     case 65524:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18841 : 18840);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18870 : 18869);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18874 : 18873);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18872 : 18871);
                                     break;
                                 case DisplayRace::Undead:
@@ -2724,15 +2612,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18843 : 18842);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18845 : 18844);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18847 : 18846);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 18860 : 18858);
                                     break;
                                 case DisplayRace::NightElf:
@@ -2748,24 +2633,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Hallow's End
                     case 65525:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22361 : 22360);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22375 : 22374);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22379 : 22378);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22377 : 22376);
                                     break;
                                 case DisplayRace::Undead:
@@ -2775,15 +2654,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22363 : 22362);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22365 : 22364);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22367 : 22366);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 22371 : 22370);
                                     break;
                                 case DisplayRace::NightElf:
@@ -2799,24 +2675,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Midsummer
                     case 65526:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 21086 : 21085);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 16438 : 16436);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 16446 : 16445);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 16432 : 16442);
                                     break;
                                 case DisplayRace::Undead:
@@ -2826,15 +2696,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 21083 : 21084);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 16413 : 16434);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 16448 : 16447);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 16433 : 16412);
                                     break;
                                 case DisplayRace::NightElf:
@@ -2850,24 +2717,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Spirit of Competition
                     case 65527:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24508 : 24519);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24515 : 24526);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24517 : 24528);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24516 : 24527);
                                     break;
                                 case DisplayRace::Undead:
@@ -2877,15 +2738,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24509 : 24520);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24510 : 24521);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24511 : 24522);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 24513 : 24524);
                                     break;
                                 case DisplayRace::NightElf:
@@ -2901,24 +2759,18 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                     // Gossip NPC Appearance - Pirates' Day
                     case 65528:
                         {
-                            switch (target->GetDisplayRace())
+                            switch (DisplayRace(sRaceMgr->GetKinRace(uint8(target->GetDisplayRace()))))
                             {
                                 case DisplayRace::BloodElf:
-                                case DisplayRace::HighElf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25032 : 25043);
                                     break;
                                 case DisplayRace::Orc:
-                                case DisplayRace::MagharOrc:
-                                case DisplayRace::Ogre:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25039 : 25050);
                                     break;
                                 case DisplayRace::Troll:
-                                case DisplayRace::ZandalariTroll:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25041 : 25052);
                                     break;
                                 case DisplayRace::Tauren:
-                                case DisplayRace::Vulpera:
-                                case DisplayRace::HordePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25040 : 25051);
                                     break;
                                 case DisplayRace::Undead:
@@ -2928,15 +2780,12 @@ void AuraEffect::HandleAuraTransform(AuraApplication const* aurApp, uint8 mode, 
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25033 : 25044);
                                     break;
                                 case DisplayRace::Dwarf:
-                                case DisplayRace::DarkIronDwarf:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25034 : 25045);
                                     break;
                                 case DisplayRace::Gnome:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25035 : 25046);
                                     break;
                                 case DisplayRace::Human:
-                                case DisplayRace::Worgen:
-                                case DisplayRace::AlliancePandaren:
                                     target->SetDisplayId(target->getGender() == GENDER_MALE ? 25037 : 25048);
                                     break;
                                 case DisplayRace::NightElf:

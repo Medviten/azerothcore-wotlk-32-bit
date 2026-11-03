@@ -19,6 +19,7 @@
 #include "CreatureTextMgr.h"
 #include "InstanceMapScript.h"
 #include "Player.h"
+#include "RaceMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
 #include "TemporarySummon.h"
@@ -66,7 +67,9 @@ public:
             if (instance->GetPlayersCountExceptGMs() == 1)
                 SetData(DATA_ARTHAS_REPOSITION, 2);
 
-            if (plr->getRace() != RACE_HUMAN && plr->getRace() != RACE_DWARF && plr->getRace() != RACE_GNOME)
+            // Human, Dwarf and Gnome kin keep their own appearance; everyone else is disguised as a human
+            uint8 const kin = sRaceMgr->GetKinRace(plr->getRace());
+            if (kin != RACE_HUMAN && kin != RACE_DWARF && kin != RACE_GNOME)
                 plr->CastSpell(plr, ((plr->getGender() == GENDER_MALE) ? SPELL_HUMAN_MALE : SPELL_HUMAN_FEMALE), true);
         }
 

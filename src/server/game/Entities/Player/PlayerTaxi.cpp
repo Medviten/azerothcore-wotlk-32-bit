@@ -17,6 +17,7 @@
 
 #include "ObjectMgr.h"
 #include "Player.h"
+#include "RaceMgr.h"
 #include "StringConvert.h"
 #include "Tokenize.h"
 
@@ -34,7 +35,7 @@ void PlayerTaxi::InitTaxiNodesForLevel(uint32 race, uint32 chrClass, uint8 level
     }
 
     // race specific initial known nodes: capital and taxi hub masks
-    switch (race)
+    switch (sRaceMgr->GetHomeRace(race))
     {
         case RACE_HUMAN:
             SetTaximaskNode(2);
@@ -51,7 +52,7 @@ void PlayerTaxi::InitTaxiNodesForLevel(uint32 race, uint32 chrClass, uint8 level
             break;     // Night Elf
         case RACE_UNDEAD_PLAYER:
             SetTaximaskNode(11);
-            break;     // Undead
+            break;// Undead
         case RACE_TAUREN:
             SetTaximaskNode(22);
             break;     // Tauren
@@ -67,37 +68,6 @@ void PlayerTaxi::InitTaxiNodesForLevel(uint32 race, uint32 chrClass, uint8 level
         case RACE_DRAENEI:
             SetTaximaskNode(94);
             break;     // Draenei
-        case RACE_GOBLIN:
-            SetTaximaskNode(23);
-            break;     // Goblin
-        case RACE_WORGEN:
-            SetTaximaskNode(26);
-            SetTaximaskNode(27);
-            break;     // Worgen
-        case RACE_HIGHELF:
-            SetTaximaskNode(2);
-            break;     // High Elf
-        case RACE_MAGHARORC:
-            SetTaximaskNode(23);
-            break;     // Mag'har Orc
-        case RACE_OGRE:
-            SetTaximaskNode(23);
-            break;     // Ogre
-        case RACE_DARKIRONDWARF:
-            SetTaximaskNode(6);
-            break;     // Dark Iron Dwarf
-        case RACE_ZANDALARITROLL:
-            SetTaximaskNode(23);
-            break;     // Zandalari Troll
-        case RACE_VULPERA:
-            SetTaximaskNode(22);
-            break;     // Vulpera
-        case RACE_ALLIANCEPANDAREN:
-            SetTaximaskNode(2);
-            break;     // Alliance Pandaren
-        case RACE_HORDEPANDAREN:
-            SetTaximaskNode(22);
-            break;     // Horde Pandaren
     }
 
     // new continent starting masks (It will be accessible only at new map)
